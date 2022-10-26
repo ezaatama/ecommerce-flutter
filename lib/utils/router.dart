@@ -1,3 +1,4 @@
+import 'package:brand_marketplace_app/screens/login_screen.dart';
 import 'package:brand_marketplace_app/screens/onboarding_screen.dart';
 import 'package:brand_marketplace_app/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case '/onboarding':
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
+      case '/login':
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       default:
         return _errorRoute();
     }
