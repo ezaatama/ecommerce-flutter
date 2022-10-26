@@ -104,27 +104,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        ButtonBlack(onPressed: () {}, text: "Get Started"),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: ButtonWhite(
-                                  onPressed: () {},
-                                  icon: "assets/icons/facebook.png",
-                                  text: "FACEBOOK"),
-                            ),
-                            const SizedBox(width: 15),
-                            Expanded(
-                              flex: 2,
-                              child: ButtonWhite(
-                                  onPressed: () {},
-                                  icon: "assets/icons/google.png",
-                                  text: "GOOGLE"),
-                            )
-                          ],
-                        )
+                        ButtonBlack(onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+                        }, text: "Get Started"),
                       ],
                     ))
               ],
