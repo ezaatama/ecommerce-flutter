@@ -1,4 +1,5 @@
 import 'package:brand_marketplace_app/utils/constant.dart';
+import 'package:brand_marketplace_app/utils/validated_form.dart';
 import 'package:brand_marketplace_app/widgets/button_black.dart';
 import 'package:brand_marketplace_app/widgets/button_white.dart';
 import 'package:brand_marketplace_app/widgets/custom_input_textfield.dart';
@@ -76,11 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             hintText: 'Your Name',
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'Name must not be empty';
-              }
-            },
+            validator: (value) => NameValidator.nameValidate(value!)
           ),
           const SizedBox(height: 16),
           Text("Email",
@@ -91,8 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             hintText: 'Your Email',
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
-            validator: (value) =>
-                !isEmail(value!) ? "Please enter valid email" : null,
+            validator: (value) => EmailValidator.emailValidate(value!)
           ),
           const SizedBox(height: 16),
           Text("Password",
@@ -104,11 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.visiblePassword,
             obscureText: !_isObscure,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'Password must not be empty';
-              }
-            },
+            validator: (value) => PasswordValidator.passwordValidate(value!),
             suffixIcon: IconSuffixButton(
                 isObscure: _isObscure,
                 onPressed: () {
@@ -133,11 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             textInputAction: TextInputAction.done,
             keyboardType: TextInputType.visiblePassword,
             obscureText: !_isObscure,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'Confirm Password must not be empty';
-              }
-            },
+            validator: (value) => ConfirmPassValidator.confirmPasswordValidate(value!),
             suffixIcon: IconSuffixButton(
                 isObscure: _isObscure,
                 onPressed: () {
@@ -193,7 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ButtonBlack(
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/login', (route) => false);
+                  context, '/success-regist', (route) => false);
             },
             text: "CREATE ACCOUNT"),
         const SizedBox(height: 10),
