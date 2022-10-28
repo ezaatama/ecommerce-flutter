@@ -2,6 +2,7 @@ import 'package:brand_marketplace_app/screens/login_screen.dart';
 import 'package:brand_marketplace_app/screens/onboarding_screen.dart';
 import 'package:brand_marketplace_app/screens/register_screen.dart';
 import 'package:brand_marketplace_app/screens/splashscreen.dart';
+import 'package:brand_marketplace_app/screens/succes_regist_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoute {
@@ -15,6 +16,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case '/register':
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case '/success-register':
+        return MaterialPageRoute(builder: (_) => const SuccessRegistScreen());
       default:
         return _errorRoute();
     }
