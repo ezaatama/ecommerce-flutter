@@ -181,7 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ButtonBlack(
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/success-regist', (route) => false);
+                  context, '/success-register', (route) => false);
             },
             text: "CREATE ACCOUNT"),
         const SizedBox(height: 10),
