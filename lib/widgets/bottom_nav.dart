@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
-class BottomNav extends StatefulWidget {
-  BottomNav({Key? key}) : super(key: key);
+Widget bottomNav(String icon, GestureTapCallback cb, bool isActive) {
+  String imageAsset =
+      'assets/icons/' + (isActive ? '${icon}_blc' : icon) + '.png';
 
-  @override
-  State<BottomNav> createState() => _BottomNavState();
-}
-
-class _BottomNavState extends State<BottomNav> {
-  int _bottomNavIndex = 0;
-  
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  return Theme(
+      data: ThemeData(
+          splashColor: Colors.transparent, highlightColor: Colors.transparent),
+      child: InkWell(
+        onTap: cb,
+        child: SizedBox(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [Image.asset(imageAsset, width: 20, height: 20)],
+          ),
+        ),
+      ));
 }
