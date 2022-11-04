@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ButtonBlack(
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/homescreen', (route) => false);
+                  context, '/bottom-screen', (route) => false);
             },
             text: "Login"),
         const SizedBox(height: 10),
